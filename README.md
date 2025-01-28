@@ -1,75 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Avaliação de Maturidade em LGPD</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        header {
+            background-color: #6f42c1;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        h1, h2 {
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .btn-custom {
+            background-color: #6f42c1;
+            color: white;
+            font-weight: bold;
+            width: 100%;
+        }
+        .form-control:focus {
+            border-color: #6f42c1;
+            box-shadow: 0 0 10px rgba(111, 66, 193, 0.5);
+        }
+        label {
+            font-size: 1.1rem;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .input-container {
+            position: relative;
+        }
+        .input-icon {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: #6f42c1;
+        }
+        .textarea-container {
+            position: relative;
+        }
+        .textarea-icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #6f42c1;
+        }
+    </style>
+</head>
+<body>
+
 <header>
-
-<!--
-  <<< Author notes: Course header >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses MIT license.
--->
-
-# GitHub Pages
-
-_Create a site or blog from your GitHub repositories with GitHub Pages._
-
+    <h1>Formulário de Avaliação de Maturidade em LGPD</h1>
+    <p>Este formulário visa avaliar a conformidade com a LGPD na sua instituição. Responda com sinceridade!</p>
 </header>
 
-<!--
-  <<< Author notes: Course start >>>
-  Include start button, a note about Actions minutes,
-  and tell the learner why they should take the course.
--->
+<main class="container my-5">
+    <!-- Formulário configurado para Netlify -->
+    <form name="lgpd-form" method="POST" data-netlify="true">
 
-## Welcome
+        <!-- Dados do Funcionário -->
+        <section class="mb-4">
+            <h2 class="h4">Dados do Funcionário</h2>
 
-With GitHub Pages, you can host project blogs, documentation, resumes, portfolios, or any other static content you'd like. Your GitHub repository can easily become its own website. In this course, we'll show you how to set up your own site or blog using GitHub Pages.
+            <div class="form-group input-container">
+                <label for="name">Nome Completo:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
 
-- **Who is this for**: Beginners, students, project maintainers, small businesses.
-- **What you'll learn**: How to build a GitHub Pages site.
-- **What you'll build**: We'll build a simple GitHub Pages site with a blog. We'll use [Jekyll](https://jekyllrb.com), a static site generator.
-- **Prerequisites**: If you need to learn about branches, commits, and pull requests, take [Introduction to GitHub](https://github.com/skills/introduction-to-github) first.
-- **How long**: This course takes less than one hour to complete.
+            <div class="form-group input-container">
+                <label for="department">Departamento/Setor:</label>
+                <input type="text" id="department" name="department" class="form-control" required>
+            </div>
 
-In this course, you will:
+            <div class="form-group input-container">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+        </section>
 
-1. Enable GitHub Pages
-2. Configure your site
-3. Customize your home page
-4. Create a blog post
-5. Merge your pull request
+        <!-- Avaliação de Maturidade -->
+        <section class="mb-4">
+            <h2 class="h4">Avaliação de Maturidade</h2>
 
-### How to start this course
+            <div class="form-group">
+                <label for="data-collection">1. Você entende como os dados pessoais são coletados no seu setor?</label>
+                <select id="data-collection" name="data-collection" class="form-control" required>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                    <option value="parcialmente">Parcialmente</option>
+                </select>
+            </div>
 
-<!-- For start course, run in JavaScript:
-'https://github.com/new?' + new URLSearchParams({
-  template_owner: 'skills',
-  template_name: 'github-pages',
-  owner: '@me',
-  name: 'skills-github-pages',
-  description: 'My clone repository',
-  visibility: 'public',
-}).toString()
--->
+            <div class="form-group textarea-container">
+                <label for="data-security">2. Quais práticas de segurança são aplicadas no seu setor para proteger os dados pessoais?</label>
+                <textarea id="data-security" name="data-security" class="form-control" rows="4" placeholder="Ex: controle de acesso, criptografia"></textarea>
+            </div>
 
-[![start-course](https://user-images.githubusercontent.com/1221423/235727646-4a590299-ffe5-480d-8cd5-8194ea184546.svg)](https://github.com/new?template_owner=skills&template_name=github-pages&owner=%40me&name=skills-github-pages&description=My+clone+repository&visibility=public)
+            <div class="form-group">
+                <label for="lgpd-training">3. Você recebeu treinamento ou orientação sobre a LGPD?</label>
+                <select id="lgpd-training" name="lgpd-training" class="form-control" required>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+            </div>
 
-1. Right-click **Start course** and open the link in a new tab.
-2. In the new tab, most of the prompts will automatically fill in for you.
-   - For owner, choose your personal account or an organization to host the repository.
-   - We recommend creating a public repository, as private repositories will [use Actions minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
-   - Scroll down and click the **Create repository** button at the bottom of the form.
-3. After your new repository is created, wait about 20 seconds, then refresh the page. Follow the step-by-step instructions in the new repository's README.
+            <div class="form-group">
+                <label for="data-mapping">4. Existe um mapeamento claro dos dados pessoais tratados no seu setor?</label>
+                <select id="data-mapping" name="data-mapping" class="form-control" required>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                    <option value="parcialmente">Parcialmente</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="incident-handling">5. Você sabe como reportar um incidente de segurança de dados?</label>
+                <select id="incident-handling" name="incident-handling" class="form-control" required>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+            </div>
+
+            <div class="form-group textarea-container">
+                <label for="improvement-suggestions">6. Quais melhorias você sugere para garantir a proteção de dados e a conformidade com a LGPD no seu setor?</label>
+                <textarea id="improvement-suggestions" name="improvement-suggestions" class="form-control" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="institutional-email">7. Você utiliza e-mail institucional para trabalho?</label>
+                <select id="institutional-email" name="institutional-email" class="form-control" required>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="shared-password">8. Você utiliza senhas compartilhadas no ambiente de trabalho?</label>
+                <select id="shared-password" name="shared-password" class="form-control" required>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="google-drive">9. Você utiliza Google Drive ou outras ferramentas de nuvem para armazenar dados da instituição?</label>
+                <select id="google-drive" name="google-drive" class="form-control" required>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="two-factor-authentication">10. Você utiliza autenticação em dois fatores para acessar os e-mails institucionais ou e-mails que contenham dados da instituição?</label>
+                <select id="two-factor-authentication" name="two-factor-authentication" class="form-control" required>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Mapeamento de Dados -->
+        <section class="mb-4">
+            <h2 class="h4">Mapeamento de Dados</h2>
+
+            <div class="form-group textarea-container">
+                <label for="data-types">1. Quais tipos de dados pessoais são coletados em seu setor?</label>
+                <textarea id="data-types" name="data-types" class="form-control" rows="4" placeholder="Ex: nome, CPF, endereço"></textarea>
+            </div>
+
+            <div class="form-group textarea-container">
+                <label for="data-purpose">2. Para quais finalidades esses dados são utilizados?</label>
+                <textarea id="data-purpose" name="data-purpose" class="form-control" rows="4" placeholder="Ex: cadastro de clientes, emissão de relatórios"></textarea>
+            </div>
+
+            <div class="form-group textarea-container">
+                <label for="data-storage">3. Onde e em qual serviço os dados são armazenados?</label>
+                <textarea id="data-storage" name="data-storage" class="form-control" rows="4" placeholder="Ex: servidor local, nuvem, Google Drive, OneDrive"></textarea>
+            </div>
+
+            <div class="form-group textarea-container">
+                <label for="data-access">4. Quem tem acesso aos dados?</label>
+                <textarea id="data-access" name="data-access" class="form-control" rows="4" placeholder="Ex: equipe de TI, departamento financeiro"></textarea>
+            </div>
+
+            <div class="form-group input-container">
+                <label for="data-retention">5. Qual é o período de retenção dos dados?</label>
+                <input type="text" id="data-retention" name="data-retention" class="form-control" placeholder="Ex: 1 ano, 5 anos" required>
+            </div>
+
+            <div class="form-group textarea-container">
+                <label for="data-protection">6. Quais medidas de proteção são adotadas para esses dados?</label>
+                <textarea id="data-protection" name="data-protection" class="form-control" rows="4" placeholder="Ex: autenticação, criptografia, backup"></textarea>
+            </div>
+        </section>
+
+        <button type="submit" class="btn btn-custom">Enviar Formulário</button>
+    </form>
+</main>
 
 <footer>
-
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
-
----
-
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/github-pages) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
-
-&copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
-
+    <p>&copy; 2023 CEAP - Centro de Articulação de Populações Marginalizadas. Todos os direitos reservados.</p>
 </footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
